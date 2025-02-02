@@ -57,7 +57,7 @@ func Open(path string) (*TorrentFile, error) {
 
 	return &TorrentFile{
 		Announce:    bto.Announce,
-		PieceLength: bto.Info.Length,
+		PieceLength: bto.Info.PieceLength,
 		PieceHashes: hashes,
 		InfoHash:    infoHash,
 		Length:      bto.Info.Length,

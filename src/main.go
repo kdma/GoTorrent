@@ -1,17 +1,20 @@
 package main
 
 import (
+	"GoTorrent/torrent"
 	"GoTorrent/torrentfile"
 	"log"
-	"os"
 )
 
 func main() {
-	inPath := os.Args[1]
-	outPath := os.Args[2]
+	inPath := "C:\\Users\\franc\\Desktop\\debian-12.9.0-amd64-netinst.iso.torrent"
+	outPath := "debian.iso"
 
 	tf, err := torrentfile.Open(inPath)
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	t, err := torrent.NewTorrent(tf)
+	t.Download(outPath)
 }
